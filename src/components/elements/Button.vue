@@ -1,29 +1,29 @@
 <script setup lang="ts">
-import { computed } from "vue";
-import { IconName } from "./Icon/icons";
-import Icon from "./Icon/Icon.vue";
-import Spinner from "./Spinner.vue";
+import { computed } from 'vue';
+import { IconName } from './Icon/icons';
+import Icon from './Icon/Icon.vue';
+import Spinner from './Spinner.vue';
 
 const styleVariants = {
-  primary: "bg-newOrange text-white",
-  secondary: "border border-2 border-solid border-newOrange text-newOrange",
-  ghost: "text-newOrange",
+  primary: 'bg-primary text-white',
+  secondary: 'border border-2 border-solid border-primary text-primary',
+  ghost: 'text-primary',
 };
 
 export type ButtonProps = {
   variant?: keyof typeof styleVariants;
-  type?: HTMLButtonElement["type"];
+  type?: HTMLButtonElement['type'];
   iconName?: IconName;
   isLoading?: boolean;
   className?: string;
 };
 
 const props = withDefaults(defineProps<ButtonProps>(), {
-  variant: "primary",
-  type: "button",
+  variant: 'primary',
+  type: 'button',
 });
 
-const spinnerStyle = computed(() => props.variant === "primary" && "white");
+const spinnerStyle = computed(() => props.variant === 'primary' && 'white');
 </script>
 
 <template>

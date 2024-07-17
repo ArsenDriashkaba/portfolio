@@ -1,15 +1,15 @@
 <script setup lang="ts" generic="Value">
-import Icon from "./Icon/Icon.vue";
-import { IconName } from "./Icon/icons";
+import Icon from './Icon/Icon.vue';
+import { IconName } from './Icon/icons';
 
 export type InputProps<Value> = {
   modelValue?: Value;
   iconName?: IconName;
   placeholder?: string;
-} & HTMLInputElement;
+} & /* @vue-ignore */ HTMLInputElement;
 
 withDefaults(defineProps<InputProps<Value>>(), {
-  type: "text",
+  type: 'text',
 });
 </script>
 
