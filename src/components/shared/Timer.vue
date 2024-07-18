@@ -2,6 +2,7 @@
 import { useSetTimer } from '@/composables/useSetTimer';
 import { computed, SVGAttributes } from 'vue';
 import { Button } from '../elements';
+import { getTimerTimeString } from '@/utils/dateTime';
 
 const DEFAULT_CIRCLE_PROPS = {
   circleDiameter: 48,
@@ -21,7 +22,7 @@ export type TimerProps = {
 
 const props = withDefaults(defineProps<TimerProps>(), {
   circleProps: {
-    circleDiameter: 48,
+    circleDiameter: 64,
     'stroke-width': 4,
   },
 });
@@ -87,7 +88,7 @@ const dash = computed(
         :cy="circleCenter"
         fill="none"
         :r="circleRadius"
-        :stroke-dasharray="`${circumference - dash} ${dash}`"
+        :stroke-dasharray="`0 ${circumference - dash} ${dash}`"
         :stroke-width="props.circleProps['stroke-width']"
         v-bind="props.circleProps"
       />
@@ -96,7 +97,7 @@ const dash = computed(
       class="absolute left-1/2 top-1/2 -translate-x-1/2 -translate-y-1/2 select-none text-primary"
       size="lg"
     >
-      {{ `${seconds}s` }}
+      {{ `${getTimerTimeString(seconds)}` }}
     </p>
   </div>
 

@@ -4,5 +4,5 @@ import { Page, Timer } from '@/components/shared';
 
 <template>
   <Page>This is a Main Page</Page>
-  <Timer :interval="60" />
+  <Timer :interval="130" />
 </template>
